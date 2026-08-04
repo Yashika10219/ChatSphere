@@ -2,6 +2,9 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dns = require("dns");
+
+dns.setDefaultResultOrder("ipv4first");
 require("dotenv").config();
 
 const { Server } = require("socket.io");
