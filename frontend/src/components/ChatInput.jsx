@@ -66,7 +66,7 @@ for (let pair of formData.entries()) {
 }
 
 const res = await axios.post(
-  "http://localhost:5000/api/messages",
+  "https://chatsphere-1-8q32.onrender.com/api/messages",
   formData,
   {
     headers: {

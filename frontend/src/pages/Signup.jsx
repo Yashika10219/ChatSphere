@@ -28,7 +28,7 @@ export default function Signup() {
       formData.append("password", form.password);
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/signup",
+        "https://chatsphere-1-8q32.onrender.com/api/auth/signup",
         {
           method: "POST",
           body: formData,

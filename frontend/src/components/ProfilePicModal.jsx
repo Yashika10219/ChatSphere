@@ -16,7 +16,7 @@ export default function ProfilePicModal({
 
   const [preview, setPreview] = useState(
     currentUser?.profilePic
-      ? `http://localhost:5000${currentUser.profilePic}`
+      ? `https://chatsphere-1-8q32.onrender.com${currentUser.profilePic}`
       : ""
   );
 
@@ -53,7 +53,7 @@ const uploadImage = async () => {
     }
 
     const res = await axios.put(
-      `http://localhost:5000/api/users/${currentUser._id}`,
+      `https://chatsphere-1-8q32.onrender.com/api/users/${currentUser._id}`,
       formData,
       {
         headers: {

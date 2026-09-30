@@ -377,6 +377,7 @@ button{
 .messages{
     flex:1;
     overflow-y:auto;
+    overflow-x:hidden;
     display:flex;
     flex-direction:column;
     gap:14px;
@@ -428,6 +429,7 @@ button{
 
 
 .message{
+    position:relative;
     max-width:420px;
     width:fit-content;
     min-width:120px;
@@ -438,7 +440,6 @@ button{
     animation:fadeIn .25s ease;
     box-shadow:0 8px 18px rgba(0,0,0,.15);
 }
-
 .message-text{
     font-size:15px;
     line-height:1.6;
@@ -1061,65 +1062,104 @@ input{
   min-height: 90px;
   resize: none;
 }
-/* ===== Message Action Menu ===== */
+/* =========================
+   FINAL MESSAGE MENU FIX
+========================= */
 
-.message-actions{
-  position:absolute;
-  top:35px;
-  right:0;
-  width:210px;
-  background:#182033;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
-  z-index:999;
+.menu-container {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    align-self: flex-end;
+    z-index: 10000;
 }
 
-.message-actions button{
-  width:100%;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px 16px;
-  border:none;
-  background:transparent;
-  color:#fff;
-  font-size:14px;
-  transition:.25s;
+.message-menu {
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 6px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
 }
 
-.message-actions button:hover{
-  background:#273549;
+.message-menu:hover {
+    background: #273549;
 }
 
-.reply-action svg{
-  color:#38bdf8;
+/* Dropdown common */
+.message-actions {
+    position: absolute !important;
+
+    top: 0 !important;
+
+    width: 190px !important;
+    min-width: 190px;
+
+    background: #182033;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 30px rgba(0,0,0,.45);
+
+    z-index: 99999 !important;
 }
 
-.delete-everyone svg{
-  color:#ef4444;
+/* RECEIVED → menu opens to the RIGHT */
+.message.received .message-actions {
+    left: 100% !important;
+    right: auto !important;
+
+    margin-left: 8px;
 }
 
-.delete-me svg{
-  color:#f59e0b;
+/* SENT → menu opens to the LEFT */
+.message.sent .message-actions {
+    right: 100% !important;
+    left: auto !important;
+
+    margin-right: 8px;
 }
 
-/* 3 Dots Button */
+.message-actions button {
+    width: 100%;
+    min-height: 42px;
 
-.message-menu{
-  background:transparent;
-  border:none;
-  color:#fff;
-  padding:6px;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:.25s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 15px;
+
+    border: none;
+    background: transparent;
+
+    color: #fff;
+    font-size: 14px;
+
+    cursor: pointer;
 }
 
-.message-menu:hover{
-  background:#273549;
+.message-actions button:hover {
+    background: #273549;
+}
+
+.reply-action svg {
+    color: #38bdf8;
+}
+
+.delete-everyone svg {
+    color: #ef4444;
+}
+
+.delete-me svg {
+    color: #f59e0b;
 }

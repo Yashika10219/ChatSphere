@@ -180,7 +180,7 @@ setOnlineUsers(data);
 
 
         const res = await axios.get(
-          "http://localhost:5000/api/users"
+          "https://chatsphere-1-8q32.onrender.com/api/users"
         );
 
 
@@ -200,7 +200,7 @@ setOnlineUsers(data);
 // CHECK UNREAD MESSAGES ON LOGIN
 // ==============================
 const unreadRes = await axios.get(
-  `http://localhost:5000/api/messages/unread/${currentUser._id}`
+  `https://chatsphere-1-8q32.onrender.com/api/messages/unread/${currentUser._id}`
 );
 
 if (unreadRes.data.length > 0) {
@@ -236,7 +236,7 @@ if (unreadRes.data.length > 0) {
 filtered.forEach(async (user) => {
   try {
     const msg = await axios.get(
-      `http://localhost:5000/api/messages/last/${user._id}`
+      `https://chatsphere-1-8q32.onrender.com/api/messages/last/${user._id}`
     );
 
     setLastMessages((prev) => ({
@@ -259,7 +259,7 @@ filtered.forEach(async (user) => {
 
 
             const msg = await axios.get(
-              `http://localhost:5000/api/messages/last/${user._id}`
+              `https://chatsphere-1-8q32.onrender.com/api/messages/last/${user._id}`
             );
 
 
@@ -476,7 +476,7 @@ filtered.forEach(async (user) => {
     user.profilePic
     ?
     <img
-      src={`http://localhost:5000${user.profilePic}`}
+      src={`https://chatsphere-1-8q32.onrender.com${user.profilePic}`}
       alt="profile"
       className="profile-img"
     />
@@ -629,7 +629,7 @@ filtered.forEach(async (user) => {
       ?
 
       <img
-  src={`http://localhost:5000${currentUser.profilePic}`}
+  src={`https://chatsphere-1-8q32.onrender.com${currentUser.profilePic}`}
   alt="profile"
   className="profile-img"
 />

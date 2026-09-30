@@ -41,7 +41,7 @@ const [showProfile, setShowProfile] = useState(false);
   const deleteMessage = async (messageId) => {
   try {
     const res = await axios.patch(
-      `http://localhost:5000/api/messages/${messageId}/delete`
+      `https://chatsphere-1-8q32.onrender.com/api/messages/${messageId}/delete`
     );
     socket.emit("deleteMessage", res.data);
 
@@ -63,7 +63,7 @@ const deleteForMe = async (messageId) => {
   try {
 
     await axios.put(
-      `http://localhost:5000/api/messages/delete-for-me/${messageId}`,
+      `https://chatsphere-1-8q32.onrender.com/api/messages/delete-for-me/${messageId}`,
       {
         userId: currentUser._id
       }
@@ -84,7 +84,7 @@ const clearChat = async () => {
   try {
 
     await axios.put(
-      "http://localhost:5000/api/messages/clear-chat",
+      "https://chatsphere-1-8q32.onrender.com/api/messages/clear-chat",
       {
         userId: currentUser._id,
         otherUserId: selectedUser._id
@@ -250,7 +250,7 @@ useEffect(() => {
 
         // DELIVERED
         await axios.patch(
-          `http://localhost:5000/api/messages/${message._id}/delivered`
+          `https://chatsphere-1-8q32.onrender.com/api/messages/${message._id}/delivered`
         );
 
 
@@ -270,7 +270,7 @@ if(
 ){
 
   await axios.patch(
-    `http://localhost:5000/api/messages/${message._id}/seen`
+    `https://chatsphere-1-8q32.onrender.com/api/messages/${message._id}/seen`
   );
 
   socket.emit(
@@ -325,7 +325,7 @@ if (
               icon:
               message.sender?.profilePic
               ?
-              `http://localhost:5000${message.sender.profilePic}`
+              `https://chatsphere-1-8q32.onrender.com${message.sender.profilePic}`
               :
               undefined
             }
@@ -682,7 +682,7 @@ const deleteHandler = (message) => {
 
       try{
         const res = await axios.get(
-  `http://localhost:5000/api/messages/${currentUser._id}/${selectedUser._id}`
+  `https://chatsphere-1-8q32.onrender.com/api/messages/${currentUser._id}/${selectedUser._id}`
 );
 
 setMessages(res.data);
@@ -702,7 +702,7 @@ for (const msg of res.data) {
   ) {
 
     await axios.patch(
-      `http://localhost:5000/api/messages/${msg._id}/seen`
+      `https://chatsphere-1-8q32.onrender.com/api/messages/${msg._id}/seen`
     );
 
     socket.emit("messageSeen", msg._id);
@@ -818,7 +818,7 @@ for (const msg of res.data) {
     <img
       src={
         selectedUser.profilePic
-          ? `http://localhost:5000${selectedUser.profilePic}`
+          ? `https://chatsphere-1-8q32.onrender.com${selectedUser.profilePic}`
           : "/default-avatar.png"
       }
       alt={selectedUser.name}
@@ -1008,7 +1008,7 @@ color: msg.isDeleted ? "#888" : "inherit",
 {msg.fileType?.includes("image") ? (
 
 <img
-src={`http://localhost:5000${msg.file}`}
+src={`https://chatsphere-1-8q32.onrender.com${msg.file}`}
 alt="attachment"
 className="chat-image"
 />
@@ -1020,7 +1020,7 @@ className="chat-image"
 (
 
 <a
-href={`http://localhost:5000${msg.file}`}
+href={`https://chatsphere-1-8q32.onrender.com${msg.file}`}
 target="_blank"
 rel="noopener noreferrer"
 className="file-link"
@@ -1202,7 +1202,7 @@ openMenu === msg._id && (
       <img
         src={
           selectedUser.profilePic
-            ? `http://localhost:5000${selectedUser.profilePic}`
+            ? `https://chatsphere-1-8q32.onrender.com${selectedUser.profilePic}`
             : "/default-avatar.png"
         }
         alt={selectedUser.name}

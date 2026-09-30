@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", {
+const socket = io("https://chatsphere-1-8q32.onrender.com", {
   autoConnect: true,
   reconnection: true,
 });
@@ -16,6 +16,7 @@ socket.on("disconnect", (reason) => {
 socket.on("connect_error", (err) => {
   console.log("🚫 Socket Connection Error:", err.message);
 });
+
 socket.on("receiveMessage", (msg) => {
   console.log("🌍 GLOBAL RECEIVE:", msg);
 });
