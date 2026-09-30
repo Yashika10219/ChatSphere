@@ -25,10 +25,10 @@ const server = http.createServer(app);
 // ==========================
 app.use(cors({
   origin: [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "https://chat-sphere-smoky-beta.vercel.app",
-],
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://chat-sphere-smoky-beta.vercel.app",
+  ],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }));
@@ -59,7 +59,7 @@ const io = new Server(server, {
     origin: [
       "http://localhost:5173",
       "http://localhost:5174",
-      // yaha baad me Vercel URL add karna
+      "https://chat-sphere-smoky-beta.vercel.app",
     ],
     methods: ["GET", "POST"],
     credentials: true,
